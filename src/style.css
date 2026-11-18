@@ -70,6 +70,42 @@
   .download-card .store-badge small { font-size: 6px; }
 }
 
+/* Evita que el contenido simulado del teléfono rebase su marco en móvil. */
+@media (max-width: 650px) {
+  .phone-scene { height: 440px; }
+  .phone {
+    height: 425px;
+    transform: rotate(3deg) scale(.88);
+    transform-origin: top center;
+  }
+  .phone-tabs { margin-top: 10px; }
+  .phone-caption { top: 65%; }
+
+  /* La tarjeta apila su marca y deja una columna completa para cada tienda. */
+  .download-card {
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+    padding: 18px 16px 20px;
+  }
+  .download-brand { display: none; }
+  .download-card > div:last-child { width: 100%; }
+  .download-card h3 { margin-top: 0; }
+  .download-card p br { display: none; }
+  .download-card .stores { width: 100%; }
+  .download-card .store-badge { justify-content: center; }
+}
+
+@media (max-width: 380px) {
+  .phone-scene { height: 420px; }
+  .phone { transform: rotate(2deg) scale(.82); }
+  .download-card { padding-inline: 12px; }
+  .download-card .stores { grid-template-columns: 1fr; }
+  .download-card .store-badge { width: 100%; max-width: 250px; margin-inline: auto; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
